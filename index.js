@@ -3,7 +3,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyCXniPyXnaStSCzn4WIYFte7NsxkqBYWg4",
   authDomain: "site-project-sidi.firebaseapp.com",
   projectId: "site-project-sidi",
-  storageBucket: "site-project-sidi.firebasestorage.app",
+  storageBucket: "site-project-sidi.appspot.com",
   messagingSenderId: "981110384583",
   appId: "1:981110384583:web:cd3b4c63ef5ee8d4391be2",
   measurementId: "G-CQW5MHFQJ9"
@@ -23,7 +23,7 @@ function signup() {
     .then(cred => {
       return db.collection("users").doc(cred.user.uid).set({
         email: email,
-        role: "user", // "admin" si c’est toi
+        role: "user",
         createdAt: new Date()
       });
     })
@@ -60,7 +60,7 @@ function logout() {
     });
 }
 
-// --------- AFFICHER PROFIL
+// --------- PROFIL UTILISATEUR (si profile.html)
 auth.onAuthStateChanged(user => {
   if (user) {
     db.collection("users").doc(user.uid).get().then(doc => {
@@ -77,7 +77,7 @@ auth.onAuthStateChanged(user => {
       }
     });
   } else {
-    // Pas connecté → rediriger
+    // Pas connecté → rediriger si on est sur profile.html
     if (window.location.pathname.includes("profile.html")) {
       window.location.href = "index.html";
     }
