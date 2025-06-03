@@ -1,3 +1,7 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, on
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -62,14 +66,20 @@ function logout() {
     });
 }
 //montrer les infos sur profile ----------------------
+// Quand l'utilisateur est connecté, on affiche son profil
 auth.onAuthStateChanged(user => {
   if (user) {
     db.collection("users").doc(user.uid).get().then(doc => {
       const data = doc.data();
-      document.body.innerHTML += `<p>Email : ${data.email}</p>`;
-      document.body.innerHTML += `<p>Rôle : ${data.role}</p>`;
+      const profileDiv = document.getElementById("profile-info");
+
+      profileDiv.innerHTML = `
+        <p><strong>Email :</strong> ${data.email}</p>
+        <p><strong>Rôle :</strong> ${data.role}</p>
+      `;
     });
   } else {
+    // Si aucun utilisateur, rediriger
     window.location.href = "index.html";
   }
 });
