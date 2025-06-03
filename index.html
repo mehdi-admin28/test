@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Connexion / Inscription</title>
+  <!-- Firebase SDKs (version CDN, PAS d'import/export !) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
+<!-- Ton fichier JS -->
+<script src="index.js" defer></script>
 </head>
 <body>
   <h2>Connexion / Inscription</h2>
@@ -15,10 +21,7 @@
   <button onclick="login()">Se connecter</button>
   <button onclick="signup()">Créer un compte</button>
 
-  <!-- Charger Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
-  <script src="./index.js"></script>
+  
+
 </body>
 </html>
