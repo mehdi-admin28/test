@@ -4,8 +4,8 @@ const firebaseConfig = {
   apiKey: "AIzaSyCXniPyXnaStSCzn4WIYFte7NsxkqBYWg4",
   authDomain: "site-project-sidi.firebaseapp.com",
   projectId: "site-project-sidi",
-  //storageBucket: "site-project-sidi.firebasestorage.app",
-  storageBucket: "site-project-sidi.appspot.com",
+  storageBucket: "site-project-sidi.firebasestorage.app",
+ 
   messagingSenderId: "981110384583",
   appId: "1:981110384583:web:cd3b4c63ef5ee8d4391be2",
   measurementId: "G-CQW5MHFQJ9"
